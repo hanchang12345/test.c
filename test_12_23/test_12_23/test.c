@@ -3,6 +3,97 @@
 #include<string.h>
 #include<Windows.h>
 #include<stdlib.h>
+//求闰年的方式1能被4整除但不能被100整除
+//			  2能被400整除
+
+//int main()
+//{
+//	int count = 0;
+//	int year = 0;
+//	for (year=1000; year <= 2000; year++)
+//	{
+//		if (year % 4 == 0 && year % 100 != 0)
+//		{
+//			printf("%d ", year);
+//			count++;
+//		}
+//
+//		else if (year % 400 == 0)
+//		{
+//			printf("%d ", year);
+//			count++;
+//		}
+//		printf("\ncount=%d ", count); 
+//	}
+//	return 0;
+//}
+
+//取最大公约数------辗转取模法
+//int main()
+//{
+//	int r = 0;
+//	int m = 18;
+//	int n = 27;
+//	scanf("%d%d", &m, & n);
+//	while (r=m%n)
+//	{
+//		//r = m % n;
+//		m = n;
+//		n = r;
+//
+//	}
+//	printf("%d\n", n);
+//	return 0;
+//}
+
+
+
+
+
+//int main()
+//{
+//	int i = 0;
+//	for(i=1;i<100;i++)
+//	{
+//		if(i%3==0)
+//		printf("%d\n", i);
+//	}
+//
+//	return 0;
+//}
+
+//把三个乱序数字由大到小打印
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int c = 0;
+//	scanf("%d%d%d", &a, &b, &c);
+//		 // %d与%d之间带什么，输入时就要带着什么	
+//	if (a < b)
+//	{
+//		int tem = a;
+//		a = b;
+//		b = tem;
+//	}
+//	if (a < c)
+//	{
+//		int tem = a;
+//		a = c;
+//		c = tem;
+//	}
+//	if (b < c)
+//	{
+//		int tem = b;
+//		b = c;
+//		c = tem;
+//	}
+//
+//	printf("%d %d %d", a, b, c);
+//
+//	return 0;
+//}
+
 //int main()
 //{
 //	int i = 0;
