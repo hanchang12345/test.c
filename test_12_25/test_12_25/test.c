@@ -3,6 +3,85 @@
 #include<math.h>
 #include<stdlib.h>
 #include<time.h>
+//void menu()
+//{
+//	printf("***********************************************\n");
+//	printf("****      1.    play          2.   exit    ****\n");
+//	printf("***********************************************\n");
+//
+//
+//}
+//void game()
+//{
+//	int ret = 0;
+//	int guess = 0;
+//	ret=rand()%100+1;
+//	//printf("%d\n", ret);
+//	while (1)
+//	{
+//		printf("请猜数字\n");
+//		scanf("%d", &guess);
+//		if (guess > ret)
+//		{
+//			printf("猜大了\n");
+//		}
+//		else if (guess < ret)
+//		{
+//			printf("猜小了\n");
+//		}
+//		else 
+//		{
+//			printf("恭喜你，猜对了\n");
+//			break;
+//		}
+//	}
+//
+//}
+//int main()
+//{
+//	srand((unsigned int)time(NULL));
+//	int input = 0;
+//	do 
+//	{
+//		menu();
+//		printf("请选择:>");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 1:
+//			game();
+//			break;
+//		case 2:
+//			printf("退出游戏\n");
+//			break;
+//		default:
+//			printf("选择错误，请重新选择\n");
+//			break;
+//
+//		}
+//	
+//	} while (input);
+//	return 0;
+//}
+
+//#include <stdlib.h>
+//#include <stdio.h>
+//#include <time.h>
+//
+//void main(void)
+//{
+//    int i;
+//
+//    /* Seed the random-number generator with current time so that
+//     * the numbers will be different every time we run.
+//     */
+//    srand((unsigned)time(NULL));
+//
+//    /* Display 10 numbers. */
+//    for (i = 0; i < 10; i++)
+//        printf("  %6d\n", rand());
+//}
+
 //`猜数字游戏
 //void menu()
 //{
