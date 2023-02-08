@@ -65,3 +65,12 @@ void ModifyContact(Contact* pc);
 
 //置空
 void DestoryContact(Contact* pc);
+
+//存储信息到文件
+void SaveContact(Contact* pc);
+
+//加载文件
+void LocdContact(Contact* pc);
+
+//扩容
+void CheckCapacity(Contact* pc);

@@ -11,6 +11,9 @@ void Initcontact(Contact* pc)
 	}
 	pc->sz = 0;
 	pc->capacity = 原始数据;
+
+	//加载文件
+	LocdContact(pc);
 }
 
 //静态
@@ -24,22 +27,8 @@ void Initcontact(Contact* pc)
 void AddContact(Contact* pc)
 {
 	//满了
-	if (pc->sz == pc->capacity)
-	{
-		PeoInfo*ptr =(PeoInfo*)realloc(pc->date ,pc->capacity+增加数据);
-		if (ptr != NULL)
-		{
-			pc->date = ptr;
-			pc->capacity += 增加数据;
-			printf("扩容成功\n");
-		}
-		else
-		{
-			perror("AddContact");
-			printf("扩容失败\n");
-			return;
-		}
-	}
+	CheckCapacity(pc);
+
 	//没满
 	printf("请输入名字:>");
 	scanf("%s", pc->date[pc->sz].name);
@@ -239,4 +228,67 @@ void SortContact(Contact* pc)
 		}
 	}
 	printf("排序成功\n");
+}
+
+void SaveContact(Contact* pc)
+{
+	
+	FILE* pf = fopen("contact,dat", "w");
+	if (pf == NULL)
+	{
+		perror("SaveContact");
+		return;
+	}
+	//写信息
+	int i = 0;
+	for (i = 0; i < pc->sz; i++)
+	{
+		fwrite(pc->date + i, sizeof(PeoInfo), 1, pf);
+	}
+	//关闭文件
+	fclose(pf);
+	pf = NULL;
+}
+
+void LocdContact(Contact* pc)
+{
+
+	FILE* pf = fopen("contact,dat", "r");
+	if (pf == NULL)
+	{
+		perror("LocdContact");
+		return;
+	}
+	//读取
+	PeoInfo tmp = { 0 };
+	while (fread(&tmp, sizeof(PeoInfo), 1, pf))
+	{
+		//判断扩容
+		CheckCapacity(pc);
+		pc->date[pc->sz] = tmp;
+		pc->sz++;
+
+	}
+	//关闭
+	fclose(pf);
+	pf = NULL;
+}
+void CheckCapacity(Contact* pc)
+{
+	if (pc->sz == pc->capacity)
+	{
+		PeoInfo* ptr = (PeoInfo*)realloc(pc->date, pc->capacity + 增加数据);
+		if (ptr != NULL)
+		{
+			pc->date = ptr;
+			pc->capacity += 增加数据;
+			printf("扩容成功\n");
+		}
+		else
+		{
+			perror("AddContact");
+			printf("扩容失败\n");
+			return;
+		}
+	}
 }
